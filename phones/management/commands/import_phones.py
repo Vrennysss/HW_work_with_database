@@ -1,6 +1,6 @@
-
 import csv
 from datetime import datetime
+from decimal import Decimal
 from django.core.management.base import BaseCommand
 from phones.models import Phone
 
@@ -15,7 +15,7 @@ class Command(BaseCommand):
         with open(csv_path, encoding='utf-8') as f:
             reader = csv.DictReader(f, delimiter=';')
             for row in reader:
-                price = row['price'].replace(',', '.')
+                price = Decimal(row['price'].replace(',', '.'))
                 release_date = datetime.strptime(row['release_date'], '%Y-%m-%d').date()
                 lte_exists = row['lte_exists'].strip().lower() in ('true', '1', 'yes')
 

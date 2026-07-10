@@ -57,7 +57,7 @@ DATABASES = {
         'HOST': '127.0.0.1',
         'PORT': '5432',
         'OPTIONS': {
-            'client_encoding': 'WIN1252',   # попробуйте сначала это
+            'client_encoding': 'WIN1252',
         },
     }
 }
